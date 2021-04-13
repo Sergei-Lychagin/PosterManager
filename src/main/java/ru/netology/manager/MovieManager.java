@@ -5,34 +5,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.netology.domain.MovieItem;
+import ru.netology.repository.MovieRepository;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class MovieManager {
+    private MovieRepository repository;
+    private int amount = 10;
+
     public MovieManager(int amount) {
         this.amount = amount;
     }
 
-    private int amount = 10;
-    private MovieItem[] movies = new MovieItem[0];
+    public MovieManager(MovieRepository repository) {
+        this.repository = repository;
+    }
 
 
     public void add(MovieItem item) {
-
-        int length = movies.length + 1;
-        MovieItem[] tmp = new MovieItem[length];
-
-        for (int i = 0; i < movies.length; i++) {
-            tmp[i] = movies[i];
-        }
-
-        int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = item;
-        movies = tmp;
+        repository.save(item);
     }
 
-    public MovieItem[] getAll() {
+    public MovieItem[] getAll(int amount) {
+        MovieItem[] movies = repository.findAll();
         int length = movies.length;
         if (length > amount) {
             length = amount;
