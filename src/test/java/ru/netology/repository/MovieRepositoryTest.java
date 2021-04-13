@@ -13,7 +13,7 @@ class MovieRepositoryTest {
     private final MovieItem first = new MovieItem(1, "film", CARTOON);
     private final MovieItem second = new MovieItem(2, "film1", COMEDY);
     private final MovieItem third = new MovieItem(3, "film2", ACTION);
-    private final MovieItem fourth = new MovieItem(4, "film2", THRILLER);
+    private final MovieItem fourth = new MovieItem(4, "film3", THRILLER);
 
     @BeforeEach
     public void setUp() {
@@ -54,7 +54,7 @@ class MovieRepositoryTest {
 
     @Test
     public void shouldFindByIdIfNotExists() {
-        int findId = 4;
+        int findId = 5;
         MovieItem actual = movieRepository.findById(findId);
 
         assertNull(actual);

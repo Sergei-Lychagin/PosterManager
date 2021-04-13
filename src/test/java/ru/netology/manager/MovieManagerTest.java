@@ -6,6 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import static org.mockito.Mockito.doReturn;
 import static ru.netology.domain.Genre.*;
 
@@ -27,7 +28,7 @@ public class MovieManagerTest {
     private final MovieItem first = new MovieItem(1, "film", CARTOON);
     private final MovieItem second = new MovieItem(2, "film1", COMEDY);
     private final MovieItem third = new MovieItem(3, "film2", ACTION);
-    private final MovieItem fourth = new MovieItem(4, "film2", THRILLER);
+    private final MovieItem fourth = new MovieItem(4, "film3", THRILLER);
 
     @BeforeEach
     public void setUp() {

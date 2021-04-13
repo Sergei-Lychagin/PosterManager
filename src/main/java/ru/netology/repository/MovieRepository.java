@@ -6,10 +6,11 @@ public class MovieRepository {
 
     private MovieItem[] movies = new MovieItem[0];
 
-    public  MovieItem[] findAll() {
+    public MovieItem[] findAll() {
         return movies;
 
     }
+
     public void save(MovieItem item) {
         int length = movies.length + 1;
         MovieItem[] tmp = new MovieItem[length];
@@ -20,18 +21,18 @@ public class MovieRepository {
     }
 
 
-
     public MovieItem findById(int id) {
         for (MovieItem item : movies) {
-            if (item.getId() == id){
+            if (item.getId() == id) {
                 return item;
+            }
         }
+        return null;
     }
-    return null;
-}
+
     public void removeById(int id) {
         int length = movies.length - 1;
-        MovieItem [] tmp = new MovieItem[length];
+        MovieItem[] tmp = new MovieItem[length];
         int index = 0;
         for (MovieItem item : movies) {
 
@@ -43,8 +44,8 @@ public class MovieRepository {
         movies = tmp;
     }
 
-    public MovieItem [] removeAll() {
-        MovieItem [] movies  = new MovieItem[0];
+    public MovieItem[] removeAll() {
+        MovieItem[] movies = new MovieItem[0];
         return movies;
     }
 }
